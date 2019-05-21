@@ -793,5 +793,16 @@ GivePlayerMoney(playerid, -500);
 }
 return SendClientMessage(playerid, 0xFF0000FF, "Bus spawned somewhere in the near of you! Cost: 500$");
 }
+
+if(!strcmp(cmdtext, "/bomb", true))
+	{
+	   if(GetPlayerMoney(playerid) <100000) return SendClientMessage(playerid, -1, "{FF0000}You don't have enough money.");
+	GivePlayerWeapon(playerid, 39, 5);
+	  SendClientMessage(playerid, -1, "SERVER has given bombs to you. (-100000$)");
+	  GivePlayerMoney(playerid, -100000);
+
+	return 1;
+    }
+
     return 0;
 }
