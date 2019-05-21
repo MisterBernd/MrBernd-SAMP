@@ -476,7 +476,7 @@ public OnGameModeInit()
 //----------------------------------------------------------
 
 public OnPlayerUpdate(playerid)
-{
+new{
 	if(!IsPlayerConnected(playerid)) return 0;
 	if(IsPlayerNPC(playerid)) return 1;
 
@@ -537,6 +537,10 @@ public OnPlayerCommandText(playerid, cmdtext[])
 		SendClientMessage(playerid, -1, "/kart ; You can spawn a car.");
 		SendClientMessage(playerid, -1, "/police ; You can spawn a car.");
 		SendClientMessage(playerid, -1, "/money ; You can get 50000$.");
+    SendClientMessage(playerid,-1,  "/rocket ; You can get a rocket launcher.");
+    SendClientMessage(playerid,-1, "/sniper ; You can get a sniper.");
+    SendClientMessage(playerid,-1, "/chainsaw ; You can get a chainsaw.");
+    SendClientMessage(playerid,-1, "/
 
         return 1;
         }
@@ -735,6 +739,19 @@ if(strcmp(cmdtext, "/su 6", true) == 0)
     SendClientMessage(playerid, 0xFF0000FF, "Wanted Level: 6");
     return 1;
 }
+if(strcmp(cmdtext, "/coach", true) == 0)
+{
+if(GetPlayerMoney(playerid) <1000) return SendClientMessage(playerid, -1, "{FF0000}You don't have enough money.");
+if(!IsPlayerInAnyVehicle(playerid))
+            {
+				new Float:X, Float:Y, Float:Z, Float:Angle;
+                GetPlayerPos(playerid, Float:X, Float:Y, Float:Z);
+                GetPlayerFacingAngle(playerid, Float:Angle);
+                CreateVehicle(437, X + 2.5, Y + 5.0, Z + 10.0, Angle + 90.0, -1, -1, 5000);
+				GivePlayerMoney(playerid, -1500);
+            }
+            return SendClientMessage(playerid,0xFF0000FF,"Vehicle spawned somewhere in the near of you! Cost: 500$");
+    }
 
     return 0;
 }
