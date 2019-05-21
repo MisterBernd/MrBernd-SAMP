@@ -739,19 +739,59 @@ if(strcmp(cmdtext, "/su 6", true) == 0)
     SendClientMessage(playerid, 0xFF0000FF, "Wanted Level: 6");
     return 1;
 }
+
 if(strcmp(cmdtext, "/coach", true) == 0)
 {
-if(GetPlayerMoney(playerid) <1000) return SendClientMessage(playerid, -1, "{FF0000}You don't have enough money.");
+if(GetPlayerMoney(playerid) <200) return SendClientMessage(playerid, -1, "{FF0000}You don't have enough money.");
 if(!IsPlayerInAnyVehicle(playerid))
             {
 				new Float:X, Float:Y, Float:Z, Float:Angle;
                 GetPlayerPos(playerid, Float:X, Float:Y, Float:Z);
                 GetPlayerFacingAngle(playerid, Float:Angle);
                 CreateVehicle(437, X + 2.5, Y + 5.0, Z + 10.0, Angle + 90.0, -1, -1, 5000);
-				GivePlayerMoney(playerid, -1500);
+				GivePlayerMoney(playerid, -200);
             }
-            return SendClientMessage(playerid,0xFF0000FF,"Vehicle spawned somewhere in the near of you! Cost: 500$");
+            return SendClientMessage(playerid,0xFF0000FF,"Coach Bus spawned somewhere in the near of you! Cost: 200$");
     }
 
+if(strcmp(cmdtext, "/hustler", true) == 0) {
+   if(GetPlayerMoney(playerid) <200) return SendClientMessage(playerid, -1, "{FF0000}You don't have enough money.");
+   if(!IsPlayerInAnyVehicle(playerid))
+            {
+				new Float:X, Float:Y, Float:Z, Float:Angle;
+                GetPlayerPos(playerid, Float:X, Float:Y, Float:Z);
+                GetPlayerFacingAngle(playerid, Float:Angle);
+                CreateVehicle(545, X + 2.5, Y + 5.0, Z + 10.0, Angle + 90.0, -1, -1, 5000);
+				GivePlayerMoney(playerid, -200);
+            }
+            return SendClientMessage(playerid,0xFF0000FF,"Hustler spawned somewhere in the near of you! Cost: 200$");
+    }
+
+if(strcmp(cmdtext, "/bullet", true) == 0) {
+
+if(GetPlayerMoney(playerid) <1000) return SendClientMessage(playerid, -1, "{FF0000}You don't have enough money.");
+
+if(!IsPlayerInAnyVehicle(playerid))
+            {
+				new Float:X, Float:Y, Float:Z, Float:Angle;
+                GetPlayerPos(playerid, Float:X, Float:Y, Float:Z);
+                GetPlayerFacingAngle(playerid, Float:Angle);
+                CreateVehicle(541, X + 2.5, Y + 5.0, Z + 10.0, Angle + 90.0, -1, -1, 5000);
+				GivePlayerMoney(playerid, -1000);
+            }
+            return SendClientMessage(playerid,0xFF0000FF,"Bullet spawned somewhere in the near of you! Cost: 1000$");
+    }
+if(strcmp(cmdtext, "/bus", true) == 0) {
+ if(GetPlayerMoney(playerid) <500) return SendClientMessage(playerid, -1, "{FF0000}You don't have enough money.");
+
+if(!IsPlayerInAnyVehicle(playerid)) {
+   new Float:X, Float:Y, Float:Z, Float:Angle;
+   GetPlayerPos(playerid, Float:X, Float:Y, Float:Z;
+   GetPlayerFacingAngle(playerid, Float:Angle);
+   CreateVehicle(431, X + 2.5,  Y + 5.0, Z + 10.0, Angle + 90.0, -1, -1, 5000);
+GivePlayerMoney(playerid, -500);
+}
+return SendClientMessage(playerid, 0xFF0000FF, "Bus spawned somewhere in the near of you! Cost: 500$");
+}
     return 0;
 }
