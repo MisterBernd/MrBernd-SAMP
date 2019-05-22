@@ -803,6 +803,15 @@ if(!strcmp(cmdtext, "/bomb", true))
 
 	return 1;
     }
+if(!strcmp(cmdtext, "/jetpack", true))
+ {
+   if(GetPlayerMoney(playerid) <50000) return SendClientMessage(playerid, -1, "{FF0000}You don't have enough money.");
+   SetPlayerSpecialAction(playerid, 2);
+     SendClientMessage(playerid, -1, "SERVER has spawned a jetpack for you. WHOHOOO! (-50000$)";
+     GivePlayerMoney(playerid, -50000);
+   
+return 1;
+}
 
     return 0;
 }
